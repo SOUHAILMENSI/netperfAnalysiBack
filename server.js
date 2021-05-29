@@ -5,18 +5,11 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const utils = require('./utils');
-
+const userData =require('./data.json')
 const app = express();
 const port = process.env.PORT || 5000;
 
 // static user details
-const userData = {
-  userId: "789789",
-  password: "123456",
-  name: "Manager tunisia",
-  username: "abc",
-  isAdmin: true
-};
 
 // enable CORS
 app.use(cors());
@@ -72,7 +65,7 @@ app.post('/users/signin', function (req, res) {
   if (user !== userData.username || pwd !== userData.password) {
     return res.status(401).json({
       error: true,
-      message: "verifier !."
+      message: "Username or Password is Wrong."
     });
   }
 
