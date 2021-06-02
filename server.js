@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const utils = require('./utils');
 const userData =require('./data.json')
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5000;
 
 // enable CORS
 app.use(cors());
@@ -42,11 +42,11 @@ app.use(function (req, res, next) {
 // request handlers
 app.get('/', (req, res) => {
   if (!req.user || !req.user.isAdmin) {
-    res.status(401).json({ error: 'Unauthorized' });
+    res.send('Welcome to netperf Analytics back! - ' + req.user.name);
     return;
    }
    
-   res.send('Welcome to netperf Analytics back! - ' + req.user.name);
+   res.status(401).json({ error: 'Unauthorized' });
 });
 
 
