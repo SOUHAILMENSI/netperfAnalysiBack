@@ -5,12 +5,18 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const utils = require('./utils');
-const userData =require('./data.json')
+//const userData =require('./data.json')
 const app = express();
 const port = process.env.PORT || 5000;
 
 // static user details
-
+const userData ={
+  "userId": "789789",
+  "password": "123456",
+  "name": "Manager Ooredoo",
+  "username": "Manager@Ooredoo",
+  "isAdmin": true
+}
 // enable CORS
 app.use(cors());
 // parse application/json
@@ -42,7 +48,7 @@ app.use(function (req, res, next) {
 
 
 // request handlers
-app.get('/login', (req, res) => {
+app.get('/', (req, res) => {
   if (!req.user) return res.status(401).json({ success: false, message: 'Invalid user to access it.' });
   res.send('Welcome to netperf Analytics back! - ' + req.user.name);
 });
