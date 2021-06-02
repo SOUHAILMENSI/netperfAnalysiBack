@@ -41,8 +41,12 @@ app.use(function (req, res, next) {
 
 // request handlers
 app.get('/', (req, res) => {
-  if (!req.user.username && req.user.isAdmin) return res.status(401).json({ success: false, message: 'Invalid user to access it.' });
-  res.send('Welcome to netperf Analytics back! - ' + req.user.name);
+  if (!req.user || !req.user.isAdmin) {
+    res.status(401).json({ error: 'Unauthorized' });
+    return;
+   }
+   
+   res.send('Welcome to netperf Analytics back! - ' + req.user.name);
 });
 
 
