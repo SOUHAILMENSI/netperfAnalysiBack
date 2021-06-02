@@ -42,7 +42,7 @@ app.use(function (req, res, next) {
 
 
 // request handlers
-app.get('/', (req, res) => {
+app.get('/login', (req, res) => {
   if (!req.user) return res.status(401).json({ success: false, message: 'Invalid user to access it.' });
   res.send('Welcome to the Node.js Tutorial! - ' + req.user.name);
 });
