@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const utils = require('./utils');
 const userData =require('./data.json')
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 // enable CORS
 app.use(cors());
