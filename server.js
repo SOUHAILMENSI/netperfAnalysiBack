@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //In all future routes, this helps to know if the request is authenticated or not.
 app.use(function (req, res, next) {
   // check header or url parameters or post parameters for token
-  var token = req.headers['authorization'];
+  let token = req.headers['Authorization'];
   if (!token) return next(); //if no token, continue
 
   token = token.replace('Bearer ', '');
