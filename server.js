@@ -45,7 +45,6 @@ app.get('/', (req, res) => {
   res.send('Welcome to netperf Analytics back! - ' + req.user.name);
 });
 
-
 // validate the user credentials
 app.post('/users/signin', function (req, res) {
   const user = req.body.username;
