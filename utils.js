@@ -1,4 +1,5 @@
 // generate token using secret from process.env.JWT_SECRET
+
 var jwt = require('jsonwebtoken');
 
 // generate token and return it
